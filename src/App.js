@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
 import Header from './components/Header/Header'
-import Landing from './components/Landing/Landing'
 import Slider from './components/Slider/Slider'
 import './App.css'
 import { ThemeContext } from './context/ThemeContext'
+import routes from './routes'
 
 const lightTheme = {
   background: '#f3f3f3',
@@ -21,7 +21,7 @@ function App() {
       <div style={theme ? { ...darkTheme } : { ...lightTheme }} className='App'>
         <Header />
         <Slider />
-        <Landing />
+        {routes}
       </div>
     </ThemeContext.Provider>
   )

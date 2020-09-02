@@ -1,20 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Card from '../Card/Card'
-import logo from '../../logo.svg'
+import Carousel from 'react-material-ui-carousel'
+import getData from '../../services/getData'
 import './Landing.css'
+import fadeIn from '../../utils/animations/fadeIn'
 
 export default function Landing() {
-  const quizzes = [
-    { title: 'Front End Quiz', logo, id: 1 },
-    { title: 'JavaScript Quiz', logo, id: 2 },
-    { title: 'Data Structures & Algorithms', logo, id: 3 },
-    { title: 'React.js Quiz', logo, id: 4 },
-  ]
+  const domElm = useRef()
+  const [quizzes, setQuizzes] = useState([])
+  useEffect(() => {
+    fadeIn(domElm.current)
+    getData('/landing', setQuizzes)
+  }, [])
+  const getQuizesJSX = (hoverable = false) =>
+    quizzes.map((elm) => (
+      <Card
+        key={elm.id}
+        title={elm.title}
+        logo={elm.logo}
+        subject={elm.subject}
+        hoverable={hoverable}
+      />
+    ))
+
   return (
-    <div className='Landing'>
-      {quizzes.map((elm) => {
-        return <Card key={elm.id} title={elm.title} logo={elm.logo} hoverable />
-      })}
+    <div ref={domElm} style={{ width: '100%' }}>
+      <div id='landing-desktop' className='Landing'>
+        {getQuizesJSX(true)}
+      </div>
+      <div id='landing-mobile'>
+        <Carousel animation='slide' timeout={300}>
+          {getQuizesJSX()}
+        </Carousel>
+      </div>
     </div>
   )
 }

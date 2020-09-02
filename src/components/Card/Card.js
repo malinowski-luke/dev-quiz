@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from 'react'
-import './Card.css'
-import Button from '../Button/Button'
+import NavButton from '../NavButton/NavButton'
 import { ThemeContext } from '../../context/ThemeContext'
+import './Card.css'
 
 const ligthTheme = {
   background: '#ffffff',
@@ -13,7 +13,7 @@ const darkTheme = {
   border: '1px solid #ffffff',
 }
 
-export default function Card({ title, logo, hoverable }) {
+export default function Card({ title, logo, subject, hoverable }) {
   const cardRef = useRef()
   const { theme } = useContext(ThemeContext)
 
@@ -31,9 +31,10 @@ export default function Card({ title, logo, hoverable }) {
       onMouseEnter={() => hoverChange(cardRef.current, true)}
       onMouseLeave={() => hoverChange(cardRef.current)}
     >
-      <img src={logo} />
+      {/* creat logo class  */}
+      <img src={logo} className='logo' />
       <h2>{title}</h2>
-      <Button text='Take Quiz!' />
+      <NavButton text='Take Quiz!' path={`/quiz/${subject}`} />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../context/ThemeContext'
-import './Button.css'
+import './NavButton.css'
 
 const ligthTheme = {
   background: '#4bb04f',
@@ -10,15 +11,15 @@ const darkTheme = {
   background: '#FEBD3F',
 }
 
-export default function Button({ text, onClick }) {
+export default function NavButton({ text, path }) {
   const { theme } = useContext(ThemeContext)
   return (
-    // onClick={() => onClick()}
-    <button
+    <Link
+      to={path}
       style={theme ? { ...darkTheme } : { ...ligthTheme }}
-      className='Button'
+      className='NavButton'
     >
       {text}
-    </button>
+    </Link>
   )
 }

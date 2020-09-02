@@ -22,14 +22,14 @@
   }
   to {
     transform: translatey(-2vw);
-    box-shadow: -4px 10px 20px #000000;
+    box-shadow: -4px 10px 20px darkslategray;
   }
 }
 
 @keyframes scale-down {
   from {
     transform: translatey(-2vw);
-    box-shadow: -4px 10px 20px #000000;
+    box-shadow: -4px 10px 20px darkslategray;
   }
   to {
     transform: translatey(0);
