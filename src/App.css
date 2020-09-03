@@ -4,7 +4,19 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  text-align: center;
   font-family: 'Nunito', sans-serif !important;
   transition: 1s;
+}
+
+/* generals */
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
 }

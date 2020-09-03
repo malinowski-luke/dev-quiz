@@ -15,5 +15,6 @@ app.use(
 
 // routes
 app.get('/landing', controller.getLandingData)
+app.get('/quiz/:subject', controller.getQuiz)
 
 app.listen(PORT, () => console.log(`Server is running on Port: ${PORT}`))
