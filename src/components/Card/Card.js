@@ -1,5 +1,6 @@
-import React, { useRef, useContext } from 'react'
-import { ThemeContext } from '../../context/ThemeContext'
+import React, { useEffect, useRef, useContext } from 'react'
+import ThemeContext from '../../context/ThemeContext'
+import fadeIn from '../../utils/animations/fadeIn'
 import './Card.css'
 
 const ligthTheme = {
@@ -21,6 +22,10 @@ export default function Card({ children, hoverable }) {
       ? `${scaleUp ? 'scale-up' : 'scale-down'} 0.3s ease-in forwards`
       : ''
   }
+
+  useEffect(() => {
+    fadeIn(cardRef.current)
+  })
 
   return (
     <div

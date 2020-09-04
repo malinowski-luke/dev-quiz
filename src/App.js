@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react'
 import Header from './components/Header/Header'
 import Slider from './components/Slider/Slider'
-import './App.css'
-import { ThemeContext } from './context/ThemeContext'
+import ThemeContext from './context/ThemeContext'
+import AnswersContext from './context/AnswersContext'
 import routes from './routes'
+import './App.css'
 
 const lightTheme = {
   background: '#f3f3f3',
@@ -16,13 +17,23 @@ const darkTheme = {
 
 function App() {
   const [theme, setTheme] = useState(false)
+  const [quizAnswers, setQuizAnswers] = useState({
+    answerKey: [],
+    userAnswers: [],
+  })
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div style={theme ? { ...darkTheme } : { ...lightTheme }} className='App'>
-        <Header />
-        <Slider />
-        {routes}
-      </div>
+      <AnswersContext.Provider value={{ quizAnswers, setQuizAnswers }}>
+        <div
+          style={theme ? { ...darkTheme } : { ...lightTheme }}
+          className='App'
+        >
+          <Header />
+          <Slider labels={['Ligth Mode', 'Dark Mode']} />
+          {routes}
+        </div>
+      </AnswersContext.Provider>
     </ThemeContext.Provider>
   )
 }

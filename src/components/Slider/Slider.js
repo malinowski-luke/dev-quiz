@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../../context/ThemeContext'
+import ThemeContext from '../../context/ThemeContext'
 import './Slider.css'
 
-export default function Slider() {
+export default function Slider({ labels }) {
   const { theme, setTheme } = useContext(ThemeContext)
   return (
     <div className='slider-container'>
-      <p>Ligth Mode</p>
+      <p>{labels[0]}</p>
       <label className='switch'>
         <input type='checkbox' onClick={() => setTheme(!theme)} />
         <span className='slider round'></span>
       </label>
-      <p>Dark Mode</p>
+      <p>{labels[1]}</p>
     </div>
   )
 }

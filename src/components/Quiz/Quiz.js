@@ -1,81 +1,28 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import React, { useEffect, useState, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import Card from '../Card/Card'
-import InputGroup from '../InputGroup/InputGroup'
-import ButtonGroup from '../ButtonGroup/ButtonGroup'
-import fadeIn from '../../utils/animations/fadeIn'
+import Form from '../Form/Form'
 import getData from '../../services/getData'
-import handleNavigateHome from '../../utils/handlers/handleNavigateHome'
+import quizDefaultState from './quizDefaultState'
+import AnswersContext from '../../context/AnswersContext'
 
 function Quiz() {
-  // state,
-  const [quiz, setQuiz] = useState([
-    {
-      id: null,
-      question: '',
-      correctAnswer: '',
-      userAnswer: '',
-      answers: {
-        a: '',
-        b: '',
-        c: '',
-        d: '',
-      },
-    },
-  ])
-  const [userAnswer, setUserAnswer] = useState('')
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  // util vars
+  const [quiz, setQuiz] = useState(quizDefaultState)
+  const { quizAnswers, setQuizAnswers } = useContext(AnswersContext)
   const params = useParams()
-  const domElm = useRef()
-  const { push } = useHistory()
-  let currentQuestion = quiz[currentIndex]
+
+  const answerKey = quiz.map((question) => question.correctAnswer)
+  const stateIsDefaultState = quiz[0].question === quizDefaultState[0].question
 
   useEffect(() => {
-    fadeIn(domElm.current)
-    getData(`/quiz/${params.subject}`, setQuiz)
-  }, [])
-
-  // event handlers
-  const handleSkip = () => {
-    setCurrentIndex(currentIndex + 1)
-    setUserAnswer('')
-    if (isLastQuestion()) push('/result')
-  }
-
-  // util functions
-  const getProgress = () => `${currentIndex + 1}/${quiz.length}`
-  const isLastQuestion = () => currentIndex + 1 === quiz.length
-
-  const buttons = [
-    {
-      type: 'submit',
-      action: () => console.log('submit'),
-    },
-    {
-      type: 'skip',
-      action: handleSkip,
-    },
-    {
-      type: 'home',
-      action: handleNavigateHome,
-    },
-  ]
+    if (stateIsDefaultState) getData(`/quiz/${params.subject}`, setQuiz)
+    setQuizAnswers({ ...quizAnswers, answerKey })
+  }, [quiz])
 
   return (
-    <div ref={domElm}>
-      <Card>
-        <h3 className='text-center'>{currentQuestion.question}</h3>
-        <p>{getProgress()}</p>
-        <InputGroup
-          answers={currentQuestion.answers}
-          userAnswer={userAnswer}
-          setUserAnswer={setUserAnswer}
-        />
-        <ButtonGroup buttons={buttons} />
-      </Card>
-    </div>
+    <Card>
+      <Form quiz={quiz} />
+    </Card>
   )
 }
 

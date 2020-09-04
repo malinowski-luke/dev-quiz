@@ -1,12 +1,20 @@
-import React, { useEffect, useRef } from 'react'
-import fadeIn from '../../utils/animations/fadeIn'
+import React, { useContext } from 'react'
+import Card from '../Card/Card'
+import NavButton from '../NavButton/NavButton'
+import AnswersContext from '../../context/AnswersContext'
+import { getQuizResult } from '../../utils/appUtils'
 
 function Result() {
-  const domElm = useRef()
-  useEffect(() => {
-    fadeIn(domElm.current)
-  })
-  return <div ref={domElm}>Result</div>
+  // context
+  const { quizAnswers } = useContext(AnswersContext)
+  const userQuizScore = getQuizResult(quizAnswers)
+
+  return (
+    <Card>
+      Result: {userQuizScore}%
+      <NavButton path='/landing'>Take Another Quiz</NavButton>
+    </Card>
+  )
 }
 
 export default Result

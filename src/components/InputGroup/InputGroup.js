@@ -27,7 +27,11 @@ function InputGroup({ answers, userAnswer, setUserAnswer }) {
       )
     })
 
-  return <table>{getAnswersJSX()}</table>
+  return (
+    <table>
+      <tbody>{getAnswersJSX()}</tbody>
+    </table>
+  )
 }
 
 export default InputGroup
