@@ -1,18 +1,20 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header/Header'
 import Slider from './components/Slider/Slider'
 import ThemeContext from './context/ThemeContext'
 import AnswersContext from './context/AnswersContext'
 import routes from './routes'
+import Colors from './utils/colorsConfig'
 import './App.css'
 
 const lightTheme = {
-  background: '#f3f3f3',
+  background: Colors.backgroundLight,
+  color: Colors.appTextLight,
 }
 
 const darkTheme = {
-  background: '#0A0A24',
-  color: '#ffffff',
+  background: Colors.backgroundDark,
+  color: Colors.appTextDark,
 }
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
           style={theme ? { ...darkTheme } : { ...lightTheme }}
           className='App'
         >
+          {/* fixed at top */}
           <Header />
+          {/* fixed at bottom */}
           <Slider labels={['Ligth Mode', 'Dark Mode']} />
           {routes}
         </div>

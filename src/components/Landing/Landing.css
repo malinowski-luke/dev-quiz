@@ -5,9 +5,16 @@
   align-items: center;
 }
 
+.quiz-img {
+  width: 40%;
+}
+
 @media (min-width: 0px) and (max-width: 576px) {
   #landing-desktop {
     display: none;
+  }
+  .quiz-img {
+    width: 50%;
   }
 }
 

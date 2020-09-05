@@ -14,7 +14,7 @@ module.exports = [
     id: 2,
   },
   {
-    title: 'Data Structures & Algorithms',
+    title: 'Data Structures',
     logo: `${imgPath}/data-structures.png`,
     subject: 'dataStructures',
     id: 3,

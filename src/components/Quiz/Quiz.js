@@ -20,7 +20,7 @@ function Quiz() {
   }, [quiz])
 
   return (
-    <Card>
+    <Card size='lg'>
       <Form quiz={quiz} />
     </Card>
   )

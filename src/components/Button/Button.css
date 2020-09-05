@@ -1,0 +1,58 @@
+.Button {
+  color: #ffffff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.button-lg,
+.button-sm {
+  font-size: 1.2rem;
+}
+
+.button-lg {
+  width: 15vw;
+  height: 3vw;
+}
+
+.button-sm {
+  width: 8vw;
+  height: 3vw;
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+  .button-lg,
+  .button-sm {
+    font-size: 1rem;
+  }
+
+  .button-lg {
+    width: 55vw;
+    height: 6vh;
+  }
+
+  .button-sm {
+    width: 20vw;
+    height: 6vh;
+  }
+}
+
+@media (min-width: 0px) and (max-height: 500px) {
+  .button-lg,
+  .button-sm {
+    font-size: 1rem;
+  }
+  .button-lg {
+    width: 20vw;
+    height: 10vh;
+  }
+
+  .button-sm {
+    width: 12vw;
+    height: 8vh;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../Button/Button'
 import './ButtonGroup.css'
 
 function ButtonGroup({ buttons }) {
@@ -6,12 +7,12 @@ function ButtonGroup({ buttons }) {
     buttons.map((elm) => {
       const { type, action } = elm
       return (
-        <button key={type} onClick={action}>
+        <Button key={type} onClick={action} size='sm'>
           {type}
-        </button>
+        </Button>
       )
     })
-  return <div>{getButtonsJSX()}</div>
+  return <div className='ButtonGroup'>{getButtonsJSX()}</div>
 }
 
 export default ButtonGroup

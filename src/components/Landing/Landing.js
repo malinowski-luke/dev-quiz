@@ -1,8 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../Card/Card'
-import Carousel from 'react-material-ui-carousel'
 import getData from '../../services/getData'
-import NavButton from '../NavButton/NavButton'
+import Button from '../Button/Button'
+// slider imports
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+// slider imports
 import './Landing.css'
 
 export default function Landing() {
@@ -14,24 +18,31 @@ export default function Landing() {
 
   const getQuizesJSX = (hoverable = false) =>
     quizzes.map((elm) => (
-      <Card key={elm.id} hoverable={hoverable}>
-        {/* creat logo class  */}
-        <img src={elm.logo} className='logo' />
-        <h2>{elm.title}</h2>
-        <NavButton path={`/quiz/${elm.subject}`}>Take Quiz!</NavButton>
+      <Card key={elm.id} hoverable={hoverable} size={hoverable ? 'sm' : 'lg'}>
+        <img src={elm.logo} className='quiz-img' alt={elm.title + ' logo'} />
+        <h2 className='text-center'>{elm.title}</h2>
+        <Button path={`/quiz/${elm.subject}`} size='lg'>
+          Take Quiz!
+        </Button>
       </Card>
     ))
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
+
   return (
-    <div style={{ width: '100%' }}>
+    <>
       <div id='landing-desktop' className='Landing'>
         {getQuizesJSX(true)}
       </div>
-      <div id='landing-mobile'>
-        <Carousel animation='slide' timeout={300}>
-          {getQuizesJSX()}
-        </Carousel>
+      <div id='landing-mobile' style={{ width: '80%' }}>
+        <Slider {...sliderSettings}>{getQuizesJSX()}</Slider>
       </div>
-    </div>
+    </>
   )
 }

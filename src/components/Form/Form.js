@@ -70,10 +70,11 @@ function Form({ quiz }) {
   const { question, answers } = currentQuestion
   return (
     <>
-      <div>
-        <h3>{question}</h3>
-        <p>{getProgress}</p>
+      <div style={{ width: '100%' }}>
+        {/* time here */}
+        <p className='text-right'>Question: {getProgress}</p>
       </div>
+      <h2 className='text-center'>{question}</h2>
       <InputGroup
         answers={answers}
         userAnswer={userAnswer}

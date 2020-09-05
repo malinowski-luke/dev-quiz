@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useContext } from 'react'
 import ThemeContext from '../../context/ThemeContext'
 import fadeIn from '../../utils/animations/fadeIn'
+import Colors from '../../utils/colorsConfig'
 import './Card.css'
 
 const ligthTheme = {
-  background: '#ffffff',
-  border: '1px solid #000000',
+  background: Colors.cardLight,
 }
 
 const darkTheme = {
-  background: '#3B3B4E',
-  border: '1px solid #ffffff',
+  background: Colors.cardDark,
 }
 
-export default function Card({ children, hoverable }) {
+export default function Card({ children, size, hoverable }) {
   const cardRef = useRef()
   const { theme } = useContext(ThemeContext)
 
   const hoverChange = (domElm, scaleUp = false) => {
-    domElm.style.animation = hoverable
-      ? `${scaleUp ? 'scale-up' : 'scale-down'} 0.3s ease-in forwards`
-      : ''
+    if (hoverable)
+      domElm.style.animation = `${
+        scaleUp ? 'scale-up' : 'scale-down'
+      } 0.3s ease-in forwards`
   }
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Card({ children, hoverable }) {
     <div
       ref={cardRef}
       style={theme ? { ...darkTheme } : { ...ligthTheme }}
-      className='Card'
+      className={`Card ${size === 'sm' ? 'card-sm' : 'card-lg'}`}
       onMouseEnter={() => hoverChange(cardRef.current, true)}
       onMouseLeave={() => hoverChange(cardRef.current)}
     >
