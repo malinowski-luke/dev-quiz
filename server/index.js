@@ -7,6 +7,9 @@ const path = require('path'),
   { imgPath } = require('./config'),
   controller = require('./controllers/conroller')
 
+// serve up front-end
+app.use(express.static(`${__dirname}/../build`))
+
 //  serve static files
 app.use(
   imgPath,
