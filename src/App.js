@@ -31,11 +31,9 @@ function App() {
           style={theme ? { ...darkTheme } : { ...lightTheme }}
           className='App'
         >
-          {/* fixed at top */}
           <Header />
-          {/* fixed at bottom */}
-          <Slider labels={['Ligth Mode', 'Dark Mode']} />
           {routes}
+          <Slider labels={['Ligth Mode', 'Dark Mode']} />
         </div>
       </AnswersContext.Provider>
     </ThemeContext.Provider>

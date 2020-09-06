@@ -1,15 +1,7 @@
 .slider-container {
-  position: fixed;
-  bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media (min-width: 0px) and (max-height: 500px) {
-  .slider-container {
-    bottom: 5px;
-  }
 }
 
 .switch input {
