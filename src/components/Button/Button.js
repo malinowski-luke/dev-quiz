@@ -5,11 +5,11 @@ import Colors from '../../utils/colorsConfig'
 import './Button.css'
 
 const ligthTheme = {
-  background: Colors.buttonLight,
+  backgroundColor: Colors.buttonLight,
 }
 
 const darkTheme = {
-  background: Colors.buttonDark,
+  backgroundColor: Colors.buttonDark,
 }
 
 function Button({ children, path, onClick, size }) {

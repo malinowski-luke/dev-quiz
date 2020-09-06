@@ -11,6 +11,8 @@ const Colors = {
   backgroundLight: '#f3f3f3',
   appTextDark: '#ffffff',
   appTextLight: '#000000',
+  sliderDotsDark: '#000000',
+  sliderDotsLight: '#ffffff',
 }
 
 export default Colors

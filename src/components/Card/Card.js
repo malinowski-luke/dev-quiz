@@ -12,7 +12,7 @@ const darkTheme = {
   background: Colors.cardDark,
 }
 
-export default function Card({ children, size, hoverable }) {
+export default function Card({ children, size, hoverable, padding }) {
   const cardRef = useRef()
   const { theme } = useContext(ThemeContext)
 
@@ -31,7 +31,9 @@ export default function Card({ children, size, hoverable }) {
     <div
       ref={cardRef}
       style={theme ? { ...darkTheme } : { ...ligthTheme }}
-      className={`Card ${size === 'sm' ? 'card-sm' : 'card-lg'}`}
+      className={`Card ${size === 'sm' ? 'card-sm' : 'card-lg'} ${
+        padding && 'card-padding'
+      }`}
       onMouseEnter={() => hoverChange(cardRef.current, true)}
       onMouseLeave={() => hoverChange(cardRef.current)}
     >

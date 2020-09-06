@@ -24,7 +24,7 @@ function Result() {
   }
 
   return (
-    <Card>
+    <Card padding>
       <h1 className='text-center'>
         {userMsg} Result:{' '}
         <span style={didUserPass ? { ...passStyle } : { ...failedStyle }}>
