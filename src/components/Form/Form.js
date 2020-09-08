@@ -48,7 +48,11 @@ function Form({ quiz }) {
     const navigateHome = window.confirm(
       'Your progress will be lost!\nAre You Sure?'
     )
-    if (navigateHome) push('/landing')
+    if (navigateHome) {
+      // clear answers context when navigating home
+      setQuizAnswers({ answerKey: [], userAnswers: [] })
+      push('/landing')
+    }
   }
 
   // buttons config

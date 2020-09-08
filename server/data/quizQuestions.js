@@ -57,7 +57,7 @@ module.exports = {
     },
     {
       id: 6,
-      question: 'Inside which HTML element do we put the JavaScript?',
+      question: 'Inside which HTML element do we put JavaScript Code',
       correctAnswer: 'b',
       answers: {
         a: '<js>',
@@ -70,7 +70,7 @@ module.exports = {
       id: 7,
       question:
         'Which of the following is the correct syntax to display “Dev Quiz” in an alert box using JavaScript?',
-      correctAnswer: 'b',
+      correctAnswer: 'c',
       answers: {
         a: 'alertBox("Dev Quiz")',
         b: 'msg(“Dev Quiz”)',
@@ -115,7 +115,7 @@ module.exports = {
     {
       id: 11,
       question: 'How many tags are in a regular HTML element??',
-      correctAnswer: '2',
+      correctAnswer: 'b',
       answers: {
         a: '1',
         b: '2',
@@ -149,7 +149,7 @@ module.exports = {
     {
       id: 14,
       question:
-        'What is the method in JavaScript used to remove the whitespace at the beginning and end of any string?',
+        'What is the method in JavaScript used to remove whitespaces at the beginning and end of any string?',
       correctAnswer: 'c',
       answers: {
         a: 'trimmed()',
@@ -178,8 +178,8 @@ module.exports = {
       answers: {
         a: '<a>www.dev-quiz.org <dev-quiz /a>',
         b: '<a href=“www.dev-quiz.org” dev-quiz /a>',
-        c: '<a link=“www.dev-quiz.org” dev-quiz> </a>',
-        d: '<a href= “www.dev-quiz.org”>dev-quiz</a>',
+        c: '<a link=“www.dev-quiz.org” dev-quiz></a>',
+        d: '<a href=“www.dev-quiz.org”>dev-quiz</a>',
       },
     },
     {
@@ -240,8 +240,8 @@ module.exports = {
     {
       id: 22,
       question:
-        'Which prefix do you need to get CSS3 properties to work on older Mozilla Firefox browsers?',
-      correctAnswer: 'a',
+        'Which prefix do you need to get CSS properties to work on older Mozilla Firefox browsers?',
+      correctAnswer: 'd',
       answers: {
         a: '-webkit',
         b: '-o-',
@@ -251,25 +251,24 @@ module.exports = {
     },
     {
       id: 23,
-      question:
-        'Which prefix do you need to get CSS3 properties to work on older Mozilla Firefox browsers?',
-      correctAnswer: 'a',
+      question: 'How to target a class in CSS?',
+      correctAnswer: 'b',
       answers: {
-        a: '-webkit',
-        b: '-o-',
-        c: '-gecko-',
-        d: '-moz',
+        a: '#id',
+        b: '.id',
+        c: 'None',
       },
     },
     {
       id: 24,
-      question: 'How to create transition effects using CSS?',
+      question:
+        'Which of the following properties is used to increase or decrease the size of a font?',
       correctAnswer: 'a',
       answers: {
-        a: 'word-wrap: break-word;',
-        b: 'words-wrap: break-word;',
-        c: 'text-wrap: break-word;',
-        d: 'text-width: word-wrap;',
+        a: 'font-size',
+        b: 'font',
+        c: 'font-variant',
+        d: 'font-weight',
       },
     },
     {
@@ -328,7 +327,7 @@ module.exports = {
     {
       id: 5,
       question:
-        'Which of the following method is used to evaluate a string of Java Script code in the context of the specified object?',
+        'Which of the following method is used to evaluate a string of JavaScript code in the context of the specified object?',
       correctAnswer: 'd',
       answers: {
         a: 'parseDouble',
@@ -420,7 +419,7 @@ module.exports = {
       id: 13,
       question:
         'You are a web designer in your company and need to create a JavaScript project for form validation. What are the advantages that JavaScript provides for forms?',
-      correctAnswer: 'b',
+      correctAnswer: 'c',
       answers: {
         a: 'Bandwidth Conservation',
         b: 'Form Validation',
@@ -494,7 +493,7 @@ module.exports = {
     },
     {
       id: 20,
-      question: 'IsNaN() Evaluates And Argument To Determine if Given Value',
+      question: 'IsNaN() Evaluates a Argument To Determine if Given Value',
       correctAnswer: 'b',
       answers: {
         a: 'Is Not a Null',

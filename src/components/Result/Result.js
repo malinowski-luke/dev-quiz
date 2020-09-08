@@ -8,7 +8,11 @@ import SmileyFace from '../SmileyFace/SmileyFace'
 function Result() {
   // context
   const { quizAnswers, setQuizAnswers } = useContext(AnswersContext)
+
+  //util func
   const userQuizScore = getQuizResult(quizAnswers)
+
+  // result vars
   const didUserPass = userQuizScore >= 65
   const userMsg = didUserPass ? 'Congrats You Passed!' : 'Try Again...'
   const smileyExpression = didUserPass ? 'happy' : 'sad'
