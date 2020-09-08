@@ -5,14 +5,9 @@ import './ButtonGroup.css'
 function ButtonGroup({ buttons }) {
   const getButtonsJSX = () =>
     buttons.map((elm) => {
-      const { type, action, path } = elm
+      const { type, action } = elm
       return (
-        <Button
-          key={type}
-          onClick={action && action}
-          path={path && path}
-          size='sm'
-        >
+        <Button key={type} onClick={action} size='sm'>
           {type}
         </Button>
       )

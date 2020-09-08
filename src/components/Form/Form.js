@@ -24,7 +24,7 @@ function Form({ quiz }) {
     setUserAnswer('')
   }
 
-  //  event handlers
+  // form action handlers
   const handleSkip = () => {
     goToNextQuestion()
     setQuizAnswers({
