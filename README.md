@@ -1,6 +1,6 @@
 # Introduction
 
-Test your JavaScript and Front-End knowledge with Dev Quiz: a web based quiz application built to test front-end developers. Users are able pick a quiz from a variety of Front-End focused subjects. This app also features a toggle-able light and dark mode (node required!!!!).
+Test your JavaScript and Front-End knowledge with Dev Quiz: a web based quiz app, built to test your front-end knowladge. Users are able to pick a quiz from a variety of Front-End focused subjects. Users also have the ability to toggle styling from light mode to dark mode (node required!!!!).
 
 ## To Run This App </>
 
