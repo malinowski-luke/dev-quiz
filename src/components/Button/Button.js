@@ -1,26 +1,18 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import ThemeContext from '../../context/ThemeContext'
-import Colors from '../../utils/colorsConfig'
+import DarkModeContext from '../../context/DarkModeContext'
+import getTheme from '../../utils/jsStyle/themes'
 import './Button.css'
 
-const ligthTheme = {
-  backgroundColor: Colors.buttonLight,
-}
-
-const darkTheme = {
-  backgroundColor: Colors.buttonDark,
-}
-
 function Button({ children, path, onClick, size }) {
-  const { theme } = useContext(ThemeContext)
+  const { darkMode } = useContext(DarkModeContext)
 
   const classList = `Button ${size === 'sm' ? 'button-sm' : 'button-lg'}`
 
   const link = (
     <Link
       to={path || '/'}
-      style={theme ? { ...darkTheme } : { ...ligthTheme }}
+      style={getTheme(darkMode, 'button')}
       className={classList}
       onClick={onClick && onClick}
     >
@@ -30,7 +22,7 @@ function Button({ children, path, onClick, size }) {
 
   const button = (
     <button
-      style={theme ? { ...darkTheme } : { ...ligthTheme }}
+      style={getTheme(darkMode, 'button')}
       className={classList}
       onClick={onClick}
     >

@@ -463,7 +463,7 @@ module.exports = {
     {
       id: 17,
       question:
-        'he != and !== symbols both work the same for inequality comparisons?',
+        'The != and !== symbols both work the same for inequality comparisons?',
       correctAnswer: 'b',
       answers: {
         a: 'True',

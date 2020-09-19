@@ -1,20 +1,12 @@
 import React, { useEffect, useRef, useContext } from 'react'
-import ThemeContext from '../../context/ThemeContext'
+import DarkModeContext from '../../context/DarkModeContext'
 import fadeIn from '../../utils/animations/fadeIn'
-import Colors from '../../utils/colorsConfig'
+import getTheme from '../../utils/jsStyle/themes'
 import './Card.css'
-
-const ligthTheme = {
-  background: Colors.cardLight,
-}
-
-const darkTheme = {
-  background: Colors.cardDark,
-}
 
 export default function Card({ children, size, hoverable, padding }) {
   const cardRef = useRef()
-  const { theme } = useContext(ThemeContext)
+  const { darkMode } = useContext(DarkModeContext)
 
   const hoverChange = (domElm, scaleUp = false) => {
     if (hoverable)
@@ -30,7 +22,7 @@ export default function Card({ children, size, hoverable, padding }) {
   return (
     <div
       ref={cardRef}
-      style={theme ? { ...darkTheme } : { ...ligthTheme }}
+      style={getTheme(darkMode, 'card')}
       className={`Card ${size === 'sm' ? 'card-sm' : 'card-lg'} ${
         padding && 'card-padding'
       }`}

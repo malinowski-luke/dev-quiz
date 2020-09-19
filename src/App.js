@@ -1,36 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header/Header'
 import Slider from './components/Slider/Slider'
-import ThemeContext from './context/ThemeContext'
+import ThemeContext from './context/DarkModeContext'
 import AnswersContext from './context/AnswersContext'
 import routes from './routes'
-import Colors from './utils/colorsConfig'
+import getTheme from './utils/jsStyle/themes'
+import { getInitialMode } from './utils/appUtils'
 import './App.css'
 
-const lightTheme = {
-  background: Colors.backgroundLight,
-  color: Colors.appTextLight,
-}
-
-const darkTheme = {
-  background: Colors.backgroundDark,
-  color: Colors.appTextDark,
-}
-
 function App() {
-  const [theme, setTheme] = useState(false)
+  const [darkMode, setDarkMode] = useState(getInitialMode())
   const [quizAnswers, setQuizAnswers] = useState({
     answerKey: [],
     userAnswers: [],
   })
 
+  useEffect(() => {
+    // set users preferred mode in localStorage to persit on reloads
+    localStorage.setItem('dark', JSON.stringify(darkMode))
+  }, [darkMode])
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <AnswersContext.Provider value={{ quizAnswers, setQuizAnswers }}>
-        <div
-          style={theme ? { ...darkTheme } : { ...lightTheme }}
-          className='App'
-        >
+        <div style={getTheme(darkMode, 'app')} className='App'>
           <Header />
           {routes}
           <Slider labels={['Ligth Mode', 'Dark Mode']} />

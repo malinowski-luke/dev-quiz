@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from 'react'
 import Card from '../Card/Card'
 import getData from '../../services/getData'
 import Button from '../Button/Button'
-import ThemeContext from '../../context/ThemeContext'
-import Colors from '../../utils/colorsConfig'
+import ThemeContext from '../../context/DarkModeContext'
+import Colors from '../../utils/jsStyle/colorsConfig'
 // slider imports
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -43,7 +43,7 @@ export default function Landing() {
     dotsClass: `slick-dots customDotsTheme`,
   }
 
-  const dotsTheme = theme ? Colors.sliderDotsLight : Colors.sliderDotsDark
+  const dotsTheme = theme ? Colors.black : Colors.white
 
   return (
     <>
