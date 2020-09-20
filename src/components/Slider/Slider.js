@@ -11,7 +11,7 @@ export default function Slider({ labels }) {
     <div className='slider-container'>
       <p>{labels[0]}</p>
       <label className='switch'>
-        <input type='checkbox' onClick={handleToggle} checked={darkMode} />
+        <input type='checkbox' onChange={handleToggle} checked={darkMode} />
         <span className='slider round'></span>
       </label>
       <p>{labels[1]}</p>

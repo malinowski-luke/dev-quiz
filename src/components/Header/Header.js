@@ -4,7 +4,7 @@ import './Header.css'
 export default function Header() {
   return (
     <div className='Header'>
-      <img src='/images/js.png' className='logo' />
+      <img src='/images/js.png' className='logo' alt='app logo' />
       <h1>Dev Quiz {'</>'}</h1>
     </div>
   )

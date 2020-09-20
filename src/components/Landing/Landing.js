@@ -16,7 +16,7 @@ export default function Landing() {
   const [quizzes, setQuizzes] = useState([])
 
   // context
-  const { theme } = useContext(ThemeContext)
+  const { darkMode } = useContext(ThemeContext)
 
   useEffect(() => {
     getData('/landing', setQuizzes)
@@ -43,7 +43,7 @@ export default function Landing() {
     dotsClass: `slick-dots customDotsTheme`,
   }
 
-  const dotsTheme = theme ? Colors.black : Colors.white
+  const dotsTheme = darkMode ? Colors.white : Colors.black
 
   return (
     <>

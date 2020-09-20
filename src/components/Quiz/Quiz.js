@@ -8,7 +8,9 @@ import AnswersContext from '../../context/AnswersContext'
 
 function Quiz() {
   const [quiz, setQuiz] = useState(quizDefaultState)
+
   const { quizAnswers, setQuizAnswers } = useContext(AnswersContext)
+
   const params = useParams()
 
   const answerKey = quiz.map((question) => question.correctAnswer)
