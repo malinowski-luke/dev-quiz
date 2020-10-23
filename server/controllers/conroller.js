@@ -1,4 +1,3 @@
-const landingData = require('../data/landingData')
 const fs = require('fs')
 
 const shuffle = (arr) => arr.sort(() => Math.random() - 0.5)
