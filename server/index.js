@@ -4,7 +4,6 @@ const express = require('express'),
 const PORT = process.env.PORT || 9000
 
 const path = require('path'),
-  { imgPath } = require('./config'),
   controller = require('./controllers/conroller')
 
 // serve up front-end
@@ -12,7 +11,7 @@ app.use(express.static(`${__dirname}/../build`))
 
 //  serve static files
 app.use(
-  imgPath,
+  '/images',
   express.static(path.join(__dirname, '/../server/assets/images'))
 )
 
